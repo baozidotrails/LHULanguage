@@ -93,6 +93,7 @@ class DemandsController < ApplicationController
 
     def redirect_if_non_logged_in
       unless logged_in?
+        store_location
         flash.now[:danger] = "請先登入"
         redirect_to login_url
       end
