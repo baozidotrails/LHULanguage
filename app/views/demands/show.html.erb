@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Description:</strong>
   <%= @demand.description %>
@@ -11,10 +9,13 @@
 </p>
 
 <%= link_to 'Edit', edit_demand_path(@demand) %> |
-<%= link_to 'Back', demands_path %> |
+<%= link_to 'Back', demands_path %>
 
-<% unless current_user.already_apply_for?(@demand) %>
-  <%= link_to 'Apply', apply_demand_path(@demand), method: :post %>
-<% else %>
-  <%= link_to 'Cancel', cancel_apply_demand_path(@demand), method: :post %>
+<% if current_user && !current_user.is_mine?(@demand) %>
+   |
+  <% unless current_user.already_apply_for?(@demand) %>
+    <%= link_to 'Apply', apply_demand_path(@demand), method: :post %>
+  <% else %>
+    <%= link_to 'Cancel', cancel_apply_demand_path(@demand), method: :post %>
+  <% end %>
 <% end %>

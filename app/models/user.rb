@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def already_apply_for?(demand)
     applied_demands.include?(demand)
   end
+
+  def is_mine?(demand)
+    demands.include?(demand)
+  end
 end
