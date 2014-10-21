@@ -1,0 +1,5 @@
+User has many demands.
+User has many applications for demands
+
+Demand belongs to user.
+Demand has many applicants.
