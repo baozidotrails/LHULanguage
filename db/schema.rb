@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021093428) do
+ActiveRecord::Schema.define(version: 20141021122228) do
+
+  create_table "demand_users", force: true do |t|
+    t.integer  "demand_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "demand_users", ["demand_id"], name: "index_demand_users_on_demand_id"
+  add_index "demand_users", ["user_id"], name: "index_demand_users_on_user_id"
 
   create_table "demands", force: true do |t|
     t.text     "description"

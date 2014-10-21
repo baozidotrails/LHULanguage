@@ -13,7 +13,7 @@
     <% @demands.each do |demand| %>
       <tr>
         <td><%= demand.description %></td>
-        <td><%= demand.user.name %></td>
+        <td><%= demand.owner.name %></td>
         <td><%= link_to 'Show', demand %></td>
         <td><%= link_to 'Edit', edit_demand_path(demand) %></td>
         <td><%= link_to 'Destroy', demand, method: :delete, data: { confirm: 'Are you sure?' } %></td>

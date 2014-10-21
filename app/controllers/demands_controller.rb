@@ -1,5 +1,5 @@
 class DemandsController < ApplicationController
-  before_action :set_demand,                only: [:show, :edit, :update, :destroy]
+  before_action :set_demand, only: [:show, :edit, :update, :destroy, :apply, :cancel_apply]
   before_action :redirect_if_non_logged_in, only: [:new, :edit, :create, :update]
 
   # GET /demands
@@ -60,6 +60,24 @@ class DemandsController < ApplicationController
       format.html { redirect_to demands_url, notice: 'Demand was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def apply
+    unless current_user.already_apply_for?(@demand)
+      current_user.apply!(@demand)
+    else
+      flash.now[:warning] = "你已經應徵過了，請耐心等待"
+    end
+    redirect_to @demand
+  end
+
+  def cancel_apply
+    if current_user.already_apply_for?(@demand)
+      current_user.cancel_apply!(@demand)
+    else
+      flash.now[:warning] = "無效的操作"
+    end
+    redirect_to @demand
   end
 
   private
