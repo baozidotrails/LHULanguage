@@ -15,7 +15,7 @@ class DemandsController < ApplicationController
 
   # GET /demands/new
   def new
-    @demand = Demand.new
+    @demand = current_user.demands.new
   end
 
   # GET /demands/1/edit
@@ -25,7 +25,7 @@ class DemandsController < ApplicationController
   # POST /demands
   # POST /demands.json
   def create
-    @demand = Demand.new(demand_params)
+    @demand = current_user.demands.new(demand_params)
 
     respond_to do |format|
       if @demand.save
@@ -88,7 +88,7 @@ class DemandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def demand_params
-      params.require(:demand).permit(:description, :user_id)
+      params.require(:demand).permit(:description, :user_id, { arrangement_ids: [] })
     end
 
     def redirect_if_non_logged_in

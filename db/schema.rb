@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021122228) do
+ActiveRecord::Schema.define(version: 20141022085305) do
+
+  create_table "demand_times", force: true do |t|
+    t.integer  "demand_id"
+    t.integer  "week_time_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "demand_times", ["demand_id"], name: "index_demand_times_on_demand_id"
+  add_index "demand_times", ["week_time_id"], name: "index_demand_times_on_week_time_id"
 
   create_table "demand_users", force: true do |t|
     t.integer  "demand_id"
@@ -36,6 +46,12 @@ ActiveRecord::Schema.define(version: 20141021122228) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "week_times", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

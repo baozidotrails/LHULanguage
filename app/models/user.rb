@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :demands
+  has_many :demands, dependent: :destroy
 
   has_many :demand_users
   has_many :applied_demands, through: :demand_users, source: :demand

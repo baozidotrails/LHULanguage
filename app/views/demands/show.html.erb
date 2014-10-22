@@ -8,6 +8,59 @@
   <%= @demand.owner.name %>
 </p>
 
+<div class="time-options-field">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>日</th>
+        <th>一</th>
+        <th>二</th>
+        <th>三</th>
+        <th>四</th>
+        <th>五</th>
+        <th>六</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th>早</th>
+        <% WeekTime.spec_moment('早').each do |t| %>
+          <% if @demand.arrangements.include?(t) %>
+            <td><span class="check"></span></td>
+          <% else %>
+            <td></td>
+          <% end %>
+        <% end %>
+
+      </tr>
+
+      <tr>
+        <th>午</th>
+        <% WeekTime.spec_moment('午').each do |t| %>
+          <% if @demand.arrangements.include?(t) %>
+            <td><span class="check"></span></td>
+          <% else %>
+            <td></td>
+          <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th>晚</th>
+        <% WeekTime.spec_moment('晚').each do |t| %>
+          <% if @demand.arrangements.include?(t) %>
+            <td><span class="check"></span></td>
+          <% else %>
+            <td></td>
+          <% end %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <%= link_to 'Edit', edit_demand_path(@demand) %> |
 <%= link_to 'Back', demands_path %>
 

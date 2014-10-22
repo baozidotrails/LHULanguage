@@ -3,3 +3,5 @@ User has many applications for demands
 
 Demand belongs to user.
 Demand has many applicants.
+
+Demand has_many arrangements
