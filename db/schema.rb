@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022085305) do
+ActiveRecord::Schema.define(version: 20141022151130) do
+
+  create_table "demand_languages", force: true do |t|
+    t.integer  "demand_id"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "demand_languages", ["demand_id"], name: "index_demand_languages_on_demand_id"
+  add_index "demand_languages", ["language_id"], name: "index_demand_languages_on_language_id"
 
   create_table "demand_times", force: true do |t|
     t.integer  "demand_id"
@@ -41,6 +51,23 @@ ActiveRecord::Schema.define(version: 20141022085305) do
   end
 
   add_index "demands", ["user_id"], name: "index_demands_on_user_id"
+
+  create_table "languages", force: true do |t|
+    t.string   "name"
+    t.string   "flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_languages", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_languages", ["language_id"], name: "index_user_languages_on_language_id"
+  add_index "user_languages", ["user_id"], name: "index_user_languages_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

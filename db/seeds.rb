@@ -8,9 +8,12 @@
 
 User.destroy_all
 Demand.destroy_all
+WeekTime.destroy_all
+Language.destroy_all
 
-User.create([{ name: 'Baozi Wu', email: 'baozi.rails@gmail.com', password: 'vvvvvv' },
- { name: 'Paotzu'  , email: 'paotzu.wu@gmail.com'  , password: 'vvvvvv' }
+User.create([
+  { name: 'Baozi Wu', email: 'baozi.rails@gmail.com', password: 'vvvvvv' },
+  { name: 'Paotzu'  , email: 'paotzu.wu@gmail.com'  , password: 'vvvvvv' }
  ])
 
 
@@ -23,3 +26,17 @@ moment.each do |moment|
     WeekTime.create(name: name)
   end
 end
+
+Language.create([
+    { name: '美語'     , flag: 'us.png' },
+    { name: '西語'     , flag: 'es.png' },
+    { name: '中文 (CN)', flag: 'cn.png' },
+    { name: '中文 (TW)', flag: 'tw.png' },
+    { name: '日語'     , flag: 'jp.png' },
+    { name: '韓語'     , flag: 'kr.png' },
+    { name: '法語'     , flag: 'fr.png' },
+    { name: '德語'     , flag: 'de.png' }
+  ])
+
+
+p "User: #{User.count}, Language: #{Language.count}"

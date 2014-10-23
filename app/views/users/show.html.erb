@@ -10,5 +10,11 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <% @user.experienced_languages.each do |l| %>
+    <%= image_tag l.flag %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

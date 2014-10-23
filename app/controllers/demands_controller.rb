@@ -88,7 +88,7 @@ class DemandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def demand_params
-      params.require(:demand).permit(:description, :user_id, { arrangement_ids: [] })
+      params.require(:demand).permit(:description, :user_id, { arrangement_ids: [] }, { specification_ids: [] })
     end
 
     def redirect_if_non_logged_in

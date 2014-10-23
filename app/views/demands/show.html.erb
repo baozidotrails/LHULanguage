@@ -1,3 +1,9 @@
+<div>
+  <% @demand.specifications.each do |spec| %>
+    <%= link_to(image_tag(spec.flag), users_path(good_at: spec.flag.split('.')[0])) %>
+  <% end %>
+</div>
+
 <p>
   <strong>Description:</strong>
   <%= @demand.description %>

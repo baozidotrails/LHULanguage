@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
 
+  scope :good_at, -> (lang) {
+    joins(:experienced_languages).where(languages: { flag: "#{lang}.png" }) if lang.present?
+  }
+
   has_many :demands, dependent: :destroy
 
   has_many :demand_users
   has_many :applied_demands, through: :demand_users, source: :demand
+
+  has_many :user_languages
+  has_many :experienced_languages, through: :user_languages, source: :language
 
   has_secure_password
   before_save :format_email!

@@ -9,4 +9,7 @@ class Demand < ActiveRecord::Base
 
   has_many :demand_times
   has_many :arrangements, through: :demand_times, source: :week_time
+
+  has_many :demand_languages
+  has_many :specifications, through: :demand_languages, source: :language
 end
