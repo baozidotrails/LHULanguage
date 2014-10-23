@@ -16,5 +16,26 @@
   <% end %>
 </p>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th>Desc</th>
+      <th>聯絡人</th>
+      <th>應徵狀態</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.applied_demands.each do |demand| %>
+      <tr>
+        <td><%= demand.description %></td>
+        <td><%= demand.author.name %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tbody></tbody>
+</table>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

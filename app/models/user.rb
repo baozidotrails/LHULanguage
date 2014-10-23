@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     applied_demands.include?(demand)
   end
 
-  def is_mine?(demand)
+  def is_author?(demand)
     demands.include?(demand)
   end
 end

@@ -11,7 +11,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @demand.owner.name %>
+  <%= @demand.author.name %>
 </p>
 
 <div class="time-options-field">
@@ -70,11 +70,7 @@
 <%= link_to 'Edit', edit_demand_path(@demand) %> |
 <%= link_to 'Back', demands_path %>
 
-<% if current_user && !current_user.is_mine?(@demand) %>
+<% if current_user && !current_user.is_author?(@demand) && !current_user.already_apply_for?(@demand) %>
    |
-  <% unless current_user.already_apply_for?(@demand) %>
-    <%= link_to 'Apply', apply_demand_path(@demand), method: :post %>
-  <% else %>
-    <%= link_to 'Cancel', cancel_apply_demand_path(@demand), method: :post %>
-  <% end %>
+  <%= link_to 'Apply', apply_demand_path(@demand), method: :post %>
 <% end %>
