@@ -73,4 +73,6 @@
 <% if current_user && !current_user.is_author?(@demand) && !current_user.already_apply_for?(@demand) %>
    |
   <%= link_to 'Apply', apply_demand_path(@demand), method: :post %>
+
 <% end %>
+<%= link_to 'Cancel', cancel_apply_demand_path(@demand), method: :post %>

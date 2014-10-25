@@ -1,5 +1,7 @@
 class Demand < ActiveRecord::Base
 
+  default_scope { order(created_at: :desc) }
+
   validates :description, presence: true
 
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'

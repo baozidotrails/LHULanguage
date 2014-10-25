@@ -65,6 +65,7 @@ class DemandsController < ApplicationController
   def apply
     unless current_user.already_apply_for?(@demand)
       current_user.apply!(@demand)
+      Notification.send_notification_for(current_user, @demand)
     else
       flash.now[:warning] = "你已經應徵過了，請耐心等待"
     end

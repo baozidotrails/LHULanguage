@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require pangu
 //= require turbolinks
 //= require_tree .

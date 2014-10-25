@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   post   'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    resources :notifications, only: [:index, :create]
+  end
+
   resources :demands do
     member do
       post :apply
