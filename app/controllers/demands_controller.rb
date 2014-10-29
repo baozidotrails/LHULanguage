@@ -65,7 +65,7 @@ class DemandsController < ApplicationController
   def apply
     unless current_user.already_apply_for?(@demand)
       current_user.apply!(@demand)
-      Notification.send_notification_for(current_user, @demand)
+      Notification.send_notification_with(current_user, @demand)
     else
       flash.now[:warning] = "你已經應徵過了，請耐心等待"
     end
@@ -89,7 +89,7 @@ class DemandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def demand_params
-      params.require(:demand).permit(:description, :user_id, { arrangement_ids: [] }, { specification_ids: [] })
+      params.require(:demand).permit(:description, :user_id, { arrangement_ids: [] }, :language_id)
     end
 
     def redirect_if_non_logged_in

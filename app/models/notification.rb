@@ -1,18 +1,13 @@
 class Notification < ActiveRecord::Base
 
   default_scope { order(created_at: :desc) }
+  scope :uncheck, -> { where(is_checked: false) }
 
-  serialize :datas, Hash
   belongs_to :user
+  belongs_to :applicant, class_name: 'User'
+  belongs_to :demand
 
-  def self.send_notification_for(applicant, demand)
-    create( content: "對您的語言交換需求有興趣",
-            user: demand.author,
-            datas: { candidate_partner: applicant, detail: demand }
-          )
-    create( content: "您已經向person提出言交換申請",
-            user: applicant,
-            datas: { candidate_partner: demand.author, detail: applicant }
-           )
+  def self.send_notification_with(applicant, demand)
+    create user: demand.author, demand: demand, applicant: applicant
   end
 end

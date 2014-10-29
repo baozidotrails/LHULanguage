@@ -7,4 +7,9 @@ module ApplicationHelper
       link_to link_text, link_path
     end
   end
+
+  def gravatar_for(user, size = 48)
+    gravatar_id = Digest::MD5.hexdigest(user.email)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+  end
 end

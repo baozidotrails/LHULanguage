@@ -1,78 +1,71 @@
-<div>
-  <% @demand.specifications.each do |spec| %>
-    <%= link_to(image_tag(spec.flag), users_path(good_at: spec.flag.split('.')[0])) %>
-  <% end %>
+<div class="demand">
+  <div class="author-panel">
+    <div class="container">
+      <div class="demand-lang">
+        <h2><%= @demand.author.name %>同學想學</h2>
+        <%= link_to(image_tag("flags/normal/#{@demand.language.flag}"), users_path(good_at: @demand.language.flag.split('.')[0])) %>
+        <span class="lang-name"><%= @demand.language.name %></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="time-table">
+    <div class="container">
+      <h2>希望時間</h2>
+
+      <div class="time-options-field">
+        <table class="table">
+          <thead>
+            <tr class="week_time">
+              <th></th>
+              <th>日</th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+              <th>四</th>
+              <th>五</th>
+              <th>六</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th>早</th>
+              <% WeekTime.spec_moment('早').each do |t| %>
+              <% if @demand.arrangements.include?(t) %>
+              <td><span class="check"></span></td>
+              <% else %>
+              <td></td>
+              <% end %>
+              <% end %>
+
+            </tr>
+
+            <tr>
+              <th>午</th>
+              <% WeekTime.spec_moment('午').each do |t| %>
+              <% if @demand.arrangements.include?(t) %>
+              <td><span class="check"></span></td>
+              <% else %>
+              <td></td>
+              <% end %>
+              <% end %>
+            </tr>
+
+            <tr>
+              <th>晚</th>
+              <% WeekTime.spec_moment('晚').each do |t| %>
+              <% if @demand.arrangements.include?(t) %>
+              <td><span class="check"></span></td>
+              <% else %>
+              <td></td>
+              <% end %>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
 </div>
-
-<p>
-  <strong>Description:</strong>
-  <%= @demand.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @demand.author.name %>
-</p>
-
-<div class="time-options-field">
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th>日</th>
-        <th>一</th>
-        <th>二</th>
-        <th>三</th>
-        <th>四</th>
-        <th>五</th>
-        <th>六</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <th>早</th>
-        <% WeekTime.spec_moment('早').each do |t| %>
-          <% if @demand.arrangements.include?(t) %>
-            <td><span class="check"></span></td>
-          <% else %>
-            <td></td>
-          <% end %>
-        <% end %>
-
-      </tr>
-
-      <tr>
-        <th>午</th>
-        <% WeekTime.spec_moment('午').each do |t| %>
-          <% if @demand.arrangements.include?(t) %>
-            <td><span class="check"></span></td>
-          <% else %>
-            <td></td>
-          <% end %>
-        <% end %>
-      </tr>
-
-      <tr>
-        <th>晚</th>
-        <% WeekTime.spec_moment('晚').each do |t| %>
-          <% if @demand.arrangements.include?(t) %>
-            <td><span class="check"></span></td>
-          <% else %>
-            <td></td>
-          <% end %>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<%= link_to 'Edit', edit_demand_path(@demand) %> |
-<%= link_to 'Back', demands_path %>
-
-<% if current_user && !current_user.is_author?(@demand) && !current_user.already_apply_for?(@demand) %>
-   |
-  <%= link_to 'Apply', apply_demand_path(@demand), method: :post %>
-
-<% end %>
-<%= link_to 'Cancel', cancel_apply_demand_path(@demand), method: :post %>

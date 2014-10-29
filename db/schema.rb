@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025070925) do
+ActiveRecord::Schema.define(version: 20141027172737) do
 
   create_table "demand_languages", force: true do |t|
     t.integer  "demand_id"
@@ -48,8 +48,10 @@ ActiveRecord::Schema.define(version: 20141025070925) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "language_id"
   end
 
+  add_index "demands", ["language_id"], name: "index_demands_on_language_id"
   add_index "demands", ["user_id"], name: "index_demands_on_user_id"
 
   create_table "languages", force: true do |t|
@@ -60,11 +62,12 @@ ActiveRecord::Schema.define(version: 20141025070925) do
   end
 
   create_table "notifications", force: true do |t|
-    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "datas"
+    t.integer  "demand_id"
+    t.integer  "applicant_id"
+    t.boolean  "is_checked",   default: false
   end
 
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"

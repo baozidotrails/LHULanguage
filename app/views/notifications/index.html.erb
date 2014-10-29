@@ -3,14 +3,7 @@
 <ul>
   <% @notifications.each do |notification| %>
     <li>
-      <% if notification.content.split('person').size == 1 %>
-        <%= link_to notification.datas[:candidate_partner].name, notification.datas[:candidate_partner] %> <%= notification.content %>
-      <% else %>
-        <%= notification.content.split('person')[0] %>
-        <%= link_to notification.datas[:candidate_partner].name, notification.datas[:candidate_partner] %>
-        <%= notification.content.split('person')[1] %>
-      <% end %>
-      <%= link_to '查看詳情', notification.datas[:detail] %>
+      <%= link_to notification.applicant.name, notification.applicant %>對你的<%= link_to '交換語言需求', notification.demand %>有興趣。
     </li>
   <% end %>
 </ul>

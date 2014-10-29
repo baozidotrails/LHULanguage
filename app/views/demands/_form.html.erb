@@ -1,7 +1,7 @@
 <%= form_for(@demand) do |f| %>
 
   <div>
-    <%= f.collection_check_boxes :specification_ids, Language.all, :id, :name %>
+    <%= f.collection_radio_buttons :language_id, Language.all, :id, :name %>
   </div>
 
   <div class="field">

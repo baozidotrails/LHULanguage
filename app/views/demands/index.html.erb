@@ -1,27 +1,32 @@
-<h1>Listing demands</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @demands.each do |demand| %>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= demand.description %></td>
-        <td><%= demand.author.name %></td>
-        <td><%= link_to 'Show', demand %></td>
-        <td><%= link_to 'Edit', edit_demand_path(demand) %></td>
-        <td><%= link_to 'Destroy', demand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>想學</th>
+        <th>聯絡人</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @demands.each do |demand| %>
+      <tr>
+        <td>
+          <%= link_to(users_path(good_at: demand.language.flag.split('.')[0])) do %>
+            <%= image_tag("flags/thumbs/#{demand.language.flag}") %>
+            <span><%= demand.language.name %></span>
+          <% end %>
+        </td>
 
-<%= link_to 'New Demand', new_demand_path %>
+        <td>
+          <%= link_to demand.author do %>
+            <%= image_tag gravatar_for(demand.author) %>
+            <span><%= demand.author.name %></span>
+          <% end %>
+        </td>
+        <td><%= link_to '我有興趣', demand %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
