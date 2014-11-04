@@ -4,7 +4,8 @@ class Demand < ActiveRecord::Base
   scope :available, -> { where(instructor_id: nil) }
 
   validates :description, presence: true
-
+pp
+  # todo: describe how did I figure this our through recoring casts
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   belongs_to :instructor, class_name: 'User'
   belongs_to :language
