@@ -1,41 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <% @user.experienced_languages.each do |l| %>
-    <%= image_tag l.flag %>
-  <% end %>
-</p>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Desc</th>
-      <th>聯絡人</th>
-      <th>應徵狀態</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.applied_demands.each do |demand| %>
-      <tr>
-        <td><%= demand.description %></td>
-        <td><%= demand.author.name %></td>
-        <td></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <tbody></tbody>
-</table>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-xs-6 col-md-4" align="center">
+      <h2></h2>
+      <%= gravatar_for @user %>
+      <h2><%= @user.name %></h2>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-8">
+      <h2>擅長的語言</h2>
+      <ul>
+        <% @user.experienced_languages.each do |l| %>
+          <li><%= link_to(image_tag("flags/thumbs/#{l.flag}"), users_path(good_at: l.flag.split('.')[0])) %></li>
+        <% end %>
+      </ul>
+      <h2>欲交換語言</h2>
+      <ul>
+        <% @user.demands.each do |demand| %>
+          <li>
+            <%= link_to(image_tag("flags/thumbs/#{demand.language.flag}"), demand) %>
+            <ul>
+              <!-- todo: describe how did you figure out with recording casts -->
+              <% if @user == current_user %>
+                <%= form_for demand, url: allow_demand_path(demand) do |f| %>
+                  <%= f.collection_radio_buttons :instructor_id, demand.applicants, :id, :name %>
+                  <%= f.submit %>
+                <% end %>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

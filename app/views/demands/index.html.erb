@@ -9,7 +9,7 @@
     </thead>
 
     <tbody>
-      <% @demands.each do |demand| %>
+      <% @demands.available.each do |demand| %>
       <tr>
         <td>
           <%= link_to(users_path(good_at: demand.language.flag.split('.')[0])) do %>
@@ -20,7 +20,7 @@
 
         <td>
           <%= link_to demand.author do %>
-            <%= image_tag gravatar_for(demand.author) %>
+            <%= gravatar_for(demand.author, size: 48) %>
             <span><%= demand.author.name %></span>
           <% end %>
         </td>

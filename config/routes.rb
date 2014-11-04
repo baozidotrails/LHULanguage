@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users do
+    resources :demands
     resources :notifications, only: [:index, :create]
   end
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     member do
       post :apply
       post :cancel_apply
+      patch :allow
     end
   end
 end

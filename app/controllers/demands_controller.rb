@@ -1,6 +1,6 @@
 class DemandsController < ApplicationController
-  before_action :set_demand, only: [:show, :edit, :update, :destroy, :apply, :cancel_apply]
-  before_action :redirect_if_non_logged_in, only: [:new, :edit, :create, :update]
+  before_action :set_demand, only: [:show, :edit, :update, :destroy, :apply, :cancel_apply, :allow]
+  before_action :redirect_if_non_logged_in, only: [:new, :edit, :create, :update, :apply]
 
   # GET /demands
   # GET /demands.json
@@ -63,11 +63,11 @@ class DemandsController < ApplicationController
   end
 
   def apply
-    unless current_user.already_apply_for?(@demand)
+    if current_user.already_apply_for?(@demand) || current_user.is_author_of?(@demand)
+      flash[:warning] = "Invalid action"
+    else
       current_user.apply!(@demand)
       Notification.send_notification_with(current_user, @demand)
-    else
-      flash.now[:warning] = "你已經應徵過了，請耐心等待"
     end
     redirect_to @demand
   end
@@ -81,6 +81,14 @@ class DemandsController < ApplicationController
     redirect_to @demand
   end
 
+  def allow
+    if current_user.is_author_of?(@demand)
+      @demand.update(instructor_param)
+      redirect_to current_user
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_demand
@@ -89,7 +97,11 @@ class DemandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def demand_params
-      params.require(:demand).permit(:description, :user_id, { arrangement_ids: [] }, :language_id)
+      params.require(:demand).permit(:description, { arrangement_ids: [] }, :language_id)
+    end
+
+    def instructor_param
+      params.require(:demand).permit(:instructor_id)
     end
 
     def redirect_if_non_logged_in

@@ -1,10 +1,12 @@
 class Demand < ActiveRecord::Base
 
   default_scope { order(created_at: :desc) }
+  scope :available, -> { where(instructor_id: nil) }
 
   validates :description, presence: true
 
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :instructor, class_name: 'User'
   belongs_to :language
 
   has_many :demand_users

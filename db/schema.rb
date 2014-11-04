@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027172737) do
+ActiveRecord::Schema.define(version: 20141029072416) do
 
   create_table "demand_languages", force: true do |t|
     t.integer  "demand_id"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20141027172737) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "language_id"
+    t.boolean  "is_available",  default: true
+    t.integer  "instructor_id"
   end
 
   add_index "demands", ["language_id"], name: "index_demands_on_language_id"
