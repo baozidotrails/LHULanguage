@@ -87,11 +87,11 @@
             <% end %>
 
             <% unless current_user.is_author_of?(@demand) || current_user.already_apply_for?(@demand) %>
-              <%= link_to '我要應徵', apply_demand_path(@demand), method: :post, class: 'btn btn-primary' %>
+              <%= link_to '我要應徵', apply_form_demand_path(@demand), class: 'btn btn-success' %>
             <% end %>
           </div>
         <% else %>
-          <%= link_to '我要應徵', apply_demand_path(@demand), method: :post, class: 'btn btn-success' %>
+          <%= link_to '我要應徵', apply_form_demand_path(@demand), class: 'btn btn-success' %>
         <% end %>
       </div>
     </div>

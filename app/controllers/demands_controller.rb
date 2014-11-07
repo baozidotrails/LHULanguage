@@ -1,6 +1,6 @@
 class DemandsController < ApplicationController
-  before_action :set_demand, only: [:show, :edit, :update, :destroy, :apply, :cancel_apply, :allow]
-  before_action :redirect_if_non_logged_in, only: [:new, :edit, :create, :update, :apply]
+  before_action :set_demand, only: [:show, :edit, :update, :destroy, :apply, :cancel_apply, :allow, :apply_form]
+  before_action :redirect_if_non_logged_in, only: [:new, :edit, :create, :update, :apply, :apply_form]
 
   # GET /demands
   # GET /demands.json
@@ -29,7 +29,7 @@ class DemandsController < ApplicationController
 
     respond_to do |format|
       if @demand.save
-        format.html { redirect_to @demand, notice: 'Demand was successfully created.' }
+        format.html { redirect_to @demand, success: '學習需求建立成功！' }
         format.json { render :show, status: :created, location: @demand }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class DemandsController < ApplicationController
   def update
     respond_to do |format|
       if @demand.update(demand_params)
-        format.html { redirect_to @demand, notice: 'Demand was successfully updated.' }
+        format.html { redirect_to @demand, success: '學習需求修改成功！' }
         format.json { render :show, status: :ok, location: @demand }
       else
         format.html { render :edit }
@@ -57,8 +57,15 @@ class DemandsController < ApplicationController
   def destroy
     @demand.destroy
     respond_to do |format|
-      format.html { redirect_to demands_url, notice: 'Demand was successfully destroyed.' }
+      format.html { redirect_to demands_url, success: '學習需求刪除成功！' }
       format.json { head :no_content }
+    end
+  end
+
+  def apply_form
+    if current_user.is_author_of?(@demand)
+      redirect_to root_url,
+        danger: '自己不能應徵自己的學習需求'
     end
   end
 

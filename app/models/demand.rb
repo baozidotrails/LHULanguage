@@ -5,7 +5,7 @@ class Demand < ActiveRecord::Base
 
   validates :description, presence: true
 
-  # todo: describe how did I figure this our through recoring casts
+  # todo:
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   belongs_to :instructor, class_name: 'User'
   belongs_to :language

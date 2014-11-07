@@ -21,8 +21,9 @@ module SessionsHelper
     session[:forwarding_url] = request.url if request.get?
   end
 
-  def redirect_back_or(default)
-    redirect_to(session[:forwarding_url] || default)
+  def redirect_back_or(default, options = {})
+    # http://archives.ryandaigle.com/articles/2009/12/20/what-s-new-in-edge-rails-set-flash-in-redirect_to
+    redirect_to(session[:forwarding_url] || default, flash: options)
     session.delete(:forwarding_url)
   end
 end

@@ -1,3 +1,4 @@
 $(function() {
-    $('.applicant-link').tooltip({placement: 'bottom'});
+  $('.applicant-link').tooltip({placement: 'bottom'});
+  $('.exp-langs').imagepicker();
 });

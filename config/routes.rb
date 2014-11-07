@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :demands do
     member do
+      get :apply_form
       post :apply
       post :cancel_apply
       patch :allow

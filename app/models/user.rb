@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
     joins(:experienced_languages).where(languages: { flag: "#{lang}.png" }) if lang.present?
   }
 
+  validates :name, :email, :password, :password_confirmation, presence: true
+
   has_many :demands, dependent: :destroy
 
   has_many :demand_users

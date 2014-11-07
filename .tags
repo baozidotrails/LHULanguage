@@ -1,0 +1,124 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AddApplicantToNotifications	db/migrate/20141027142731_add_applicant_to_notifications.rb	/^class AddApplicantToNotifications < ActiveRecord::Migration$/;"	c
+AddDatasToNotification	db/migrate/20141025070925_add_datas_to_notification.rb	/^class AddDatasToNotification < ActiveRecord::Migration$/;"	c
+AddIsAvailableAndInstructorToDemands	db/migrate/20141029072416_add_is_available_and_instructor_to_demands.rb	/^class AddIsAvailableAndInstructorToDemands < ActiveRecord::Migration$/;"	c
+AddIsCheckedToNotification	db/migrate/20141027172737_add_is_checked_to_notification.rb	/^class AddIsCheckedToNotification < ActiveRecord::Migration$/;"	c
+AddLanguageToDemands	db/migrate/20141026141433_add_language_to_demands.rb	/^class AddLanguageToDemands < ActiveRecord::Migration$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:LHUlanguage
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+CreateDemandLanguages	db/migrate/20141022151114_create_demand_languages.rb	/^class CreateDemandLanguages < ActiveRecord::Migration$/;"	c
+CreateDemandTimes	db/migrate/20141022085305_create_demand_times.rb	/^class CreateDemandTimes < ActiveRecord::Migration$/;"	c
+CreateDemandUsers	db/migrate/20141021122228_create_demand_users.rb	/^class CreateDemandUsers < ActiveRecord::Migration$/;"	c
+CreateDemands	db/migrate/20141021093428_create_demands.rb	/^class CreateDemands < ActiveRecord::Migration$/;"	c
+CreateLanguages	db/migrate/20141022142348_create_languages.rb	/^class CreateLanguages < ActiveRecord::Migration$/;"	c
+CreateNotifications	db/migrate/20141024155921_create_notifications.rb	/^class CreateNotifications < ActiveRecord::Migration$/;"	c
+CreateUserLanguages	db/migrate/20141022151130_create_user_languages.rb	/^class CreateUserLanguages < ActiveRecord::Migration$/;"	c
+CreateUsers	db/migrate/20141020084410_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+CreateWeekTimes	db/migrate/20141022083402_create_week_times.rb	/^class CreateWeekTimes < ActiveRecord::Migration$/;"	c
+Demand	app/models/demand.rb	/^class Demand < ActiveRecord::Base$/;"	c
+DemandLanguage	app/models/demand_language.rb	/^class DemandLanguage < ActiveRecord::Base$/;"	c
+DemandLanguageTest	test/models/demand_language_test.rb	/^class DemandLanguageTest < ActiveSupport::TestCase$/;"	c
+DemandTest	test/models/demand_test.rb	/^class DemandTest < ActiveSupport::TestCase$/;"	c
+DemandTime	app/models/demand_time.rb	/^class DemandTime < ActiveRecord::Base$/;"	c
+DemandTimeTest	test/models/demand_time_test.rb	/^class DemandTimeTest < ActiveSupport::TestCase$/;"	c
+DemandUser	app/models/demand_user.rb	/^class DemandUser < ActiveRecord::Base$/;"	c
+DemandUserTest	test/models/demand_user_test.rb	/^class DemandUserTest < ActiveSupport::TestCase$/;"	c
+DemandsController	app/controllers/demands_controller.rb	/^class DemandsController < ApplicationController$/;"	c
+DemandsControllerTest	test/controllers/demands_controller_test.rb	/^class DemandsControllerTest < ActionController::TestCase$/;"	c
+DemandsHelper	app/helpers/demands_helper.rb	/^module DemandsHelper$/;"	m
+DemandsHelperTest	test/helpers/demands_helper_test.rb	/^class DemandsHelperTest < ActionView::TestCase$/;"	c
+LHUlanguage	config/application.rb	/^module LHUlanguage$/;"	m
+Language	app/models/language.rb	/^class Language < ActiveRecord::Base$/;"	c
+LanguageTest	test/models/language_test.rb	/^class LanguageTest < ActiveSupport::TestCase$/;"	c
+Notification	app/models/notification.rb	/^class Notification < ActiveRecord::Base$/;"	c
+NotificationTest	test/models/notification_test.rb	/^class NotificationTest < ActiveSupport::TestCase$/;"	c
+NotificationsController	app/controllers/notifications_controller.rb	/^class NotificationsController < ApplicationController$/;"	c
+NotificationsHelper	app/helpers/notifications_helper.rb	/^module NotificationsHelper$/;"	m
+RemoveContentFromNotification	db/migrate/20141027134020_remove_content_from_notification.rb	/^class RemoveContentFromNotification < ActiveRecord::Migration$/;"	c
+RemoveDatasAndAddRederenceToNotifications	db/migrate/20141027135208_remove_datas_and_add_rederence_to_notifications.rb	/^class RemoveDatasAndAddRederenceToNotifications < ActiveRecord::Migration$/;"	c
+SessionsController	app/controllers/sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+SessionsControllerTest	test/controllers/sessions_controller_test.rb	/^class SessionsControllerTest < ActionController::TestCase$/;"	c
+SessionsHelper	app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
+SessionsHelperTest	test/helpers/sessions_helper_test.rb	/^class SessionsHelperTest < ActionView::TestCase$/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserLanguage	app/models/user_language.rb	/^class UserLanguage < ActiveRecord::Base$/;"	c
+UserLanguageTest	test/models/user_language_test.rb	/^class UserLanguageTest < ActiveSupport::TestCase$/;"	c
+UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersControllerTest	test/controllers/users_controller_test.rb	/^class UsersControllerTest < ActionController::TestCase$/;"	c
+UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+UsersHelperTest	test/helpers/users_helper_test.rb	/^class UsersHelperTest < ActionView::TestCase$/;"	c
+WeekTime	app/models/week_time.rb	/^class WeekTime < ActiveRecord::Base$/;"	c
+WeekTimeTest	test/models/week_time_test.rb	/^class WeekTimeTest < ActiveSupport::TestCase$/;"	c
+allow	app/controllers/demands_controller.rb	/^  def allow$/;"	f	class:DemandsController
+already_apply_for?	app/models/user.rb	/^  def already_apply_for?(demand)$/;"	f	class:User
+apply	app/controllers/demands_controller.rb	/^  def apply$/;"	f	class:DemandsController
+apply!	app/models/user.rb	/^  def apply!(demand)$/;"	f	class:User
+apply_form	app/controllers/demands_controller.rb	/^  def apply_form$/;"	f	class:DemandsController
+block_tags	vendor/assets/javascripts/pangu.js	/^    var block_tags = \/^(div|h1|h2|h3|h4|h5|h6|p)$\/i;$/;"	v
+can_ignore_node	vendor/assets/javascripts/pangu.js	/^    function can_ignore_node(node) {$/;"	f
+cancel_apply	app/controllers/demands_controller.rb	/^  def cancel_apply$/;"	f	class:DemandsController
+cancel_apply!	app/models/user.rb	/^  def cancel_apply!(demand)$/;"	f	class:User
+change	db/migrate/20141020084410_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20141021093428_create_demands.rb	/^  def change$/;"	f	class:CreateDemands
+change	db/migrate/20141021122228_create_demand_users.rb	/^  def change$/;"	f	class:CreateDemandUsers
+change	db/migrate/20141022083402_create_week_times.rb	/^  def change$/;"	f	class:CreateWeekTimes
+change	db/migrate/20141022085305_create_demand_times.rb	/^  def change$/;"	f	class:CreateDemandTimes
+change	db/migrate/20141022142348_create_languages.rb	/^  def change$/;"	f	class:CreateLanguages
+change	db/migrate/20141022151114_create_demand_languages.rb	/^  def change$/;"	f	class:CreateDemandLanguages
+change	db/migrate/20141022151130_create_user_languages.rb	/^  def change$/;"	f	class:CreateUserLanguages
+change	db/migrate/20141024155921_create_notifications.rb	/^  def change$/;"	f	class:CreateNotifications
+change	db/migrate/20141025070925_add_datas_to_notification.rb	/^  def change$/;"	f	class:AddDatasToNotification
+change	db/migrate/20141026141433_add_language_to_demands.rb	/^  def change$/;"	f	class:AddLanguageToDemands
+change	db/migrate/20141027134020_remove_content_from_notification.rb	/^  def change$/;"	f	class:RemoveContentFromNotification
+change	db/migrate/20141027135208_remove_datas_and_add_rederence_to_notifications.rb	/^  def change$/;"	f	class:RemoveDatasAndAddRederenceToNotifications
+change	db/migrate/20141027142731_add_applicant_to_notifications.rb	/^  def change$/;"	f	class:AddApplicantToNotifications
+change	db/migrate/20141027172737_add_is_checked_to_notification.rb	/^  def change$/;"	f	class:AddIsCheckedToNotification
+change	db/migrate/20141029072416_add_is_available_and_instructor_to_demands.rb	/^  def change$/;"	f	class:AddIsAvailableAndInstructorToDemands
+create	app/controllers/demands_controller.rb	/^  def create$/;"	f	class:DemandsController
+create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+current_user	app/helpers/sessions_helper.rb	/^  def current_user$/;"	f	class:SessionsHelper
+demand_params	app/controllers/demands_controller.rb	/^    def demand_params$/;"	f	class:DemandsController
+destroy	app/controllers/demands_controller.rb	/^  def destroy$/;"	f	class:DemandsController
+destroy	app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+destroy	app/controllers/users_controller.rb	/^  def destroy$/;"	f	class:UsersController
+edit	app/controllers/demands_controller.rb	/^  def edit$/;"	f	class:DemandsController
+edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
+format_email!	app/models/user.rb	/^  def format_email!$/;"	f	class:User
+gravatar_for	app/helpers/application_helper.rb	/^  def gravatar_for(user, options = { size: 128, style: nil })$/;"	f	class:ApplicationHelper
+ignore_tags	vendor/assets/javascripts/pangu.js	/^    var ignore_tags = \/^(code|pre|textarea)$\/i;$/;"	v
+index	app/controllers/demands_controller.rb	/^  def index$/;"	f	class:DemandsController
+index	app/controllers/notifications_controller.rb	/^  def index$/;"	f	class:NotificationsController
+index	app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
+instructor_param	app/controllers/demands_controller.rb	/^    def instructor_param$/;"	f	class:DemandsController
+is_author_of?	app/models/user.rb	/^  def is_author_of?(demand)$/;"	f	class:User
+is_first_text_child	vendor/assets/javascripts/pangu.js	/^    function is_first_text_child(parent_node, target_node) {$/;"	f
+is_last_text_child	vendor/assets/javascripts/pangu.js	/^    function is_last_text_child(parent_node, target_node) {$/;"	f
+log_in	app/helpers/sessions_helper.rb	/^  def log_in(user)$/;"	f	class:SessionsHelper
+log_out	app/helpers/sessions_helper.rb	/^  def log_out$/;"	f	class:SessionsHelper
+logged_in?	app/helpers/sessions_helper.rb	/^  def logged_in?$/;"	f	class:SessionsHelper
+nav_link	app/helpers/application_helper.rb	/^  def nav_link(link_text, link_path)$/;"	f	class:ApplicationHelper
+new	app/controllers/demands_controller.rb	/^  def new$/;"	f	class:DemandsController
+new	app/controllers/sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
+new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+redirect_back_or	app/helpers/sessions_helper.rb	/^  def redirect_back_or(default)$/;"	f	class:SessionsHelper
+redirect_if_non_logged_in	app/controllers/demands_controller.rb	/^    def redirect_if_non_logged_in$/;"	f	class:DemandsController
+send_notification_with	app/models/notification.rb	/^  def self.send_notification_with(applicant, demand)$/;"	F	class:Notification
+set_demand	app/controllers/demands_controller.rb	/^    def set_demand$/;"	f	class:DemandsController
+set_user	app/controllers/users_controller.rb	/^    def set_user$/;"	f	class:UsersController
+show	app/controllers/demands_controller.rb	/^  def show$/;"	f	class:DemandsController
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+space_like_tags	vendor/assets/javascripts/pangu.js	/^    var space_like_tags = \/^(br|hr|i|img|pangu)$\/i;$/;"	v
+space_sensitive_tags	vendor/assets/javascripts/pangu.js	/^    var space_sensitive_tags = \/^(a|del|pre|s|strike|u)$\/i;$/;"	v
+store_location	app/helpers/sessions_helper.rb	/^  def store_location$/;"	f	class:SessionsHelper
+update	app/controllers/demands_controller.rb	/^  def update$/;"	f	class:DemandsController
+update	app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+user_params	app/controllers/users_controller.rb	/^    def user_params$/;"	f	class:UsersController

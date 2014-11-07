@@ -1,16 +1,18 @@
-<%= form_for :session, url: login_path do |f| %> <!-- The path form will send requests POST sessions#create -->
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+<% provide :title, "登入" %>
 
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+<!-- The path form will send requests POST sessions#create -->
+<%= form_for :session, url: login_path, html: { class: 'form-signin' } do |f| %>
+  <h2 class="form-signin-heading">登入</h2>
 
 
-  <div>
-    <%= f.submit 'Login' %>
-  </div>
+  <%= f.email_field :email, class: 'form-control',
+                            placeholder: 'E-mail',
+                            autofocus: true,
+                            value: (params[:session].present? ? params[:session][:email] : "") %>
+
+  <%= f.password_field :password, class: 'form-control', placeholder: '密碼' %>
+
+  <div class="no-account">還沒有帳號嗎？<%= link_to '註冊一個', signup_path %>吧。</div>
+
+  <%= f.submit '登入', class: 'btn btn-lg btn-success btn-block' %>
 <% end %>
