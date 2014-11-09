@@ -15,7 +15,8 @@ body {
   padding-top: 51px;
   font-size: 16px;
 
-  &.auth-login {
+  &.auth {
+    margin-top: -40px;
     background: image-url('backgrounds/school.png');
   }
 }
@@ -44,6 +45,8 @@ body {
 
 .field_with_errors {
   @extend .has-error;
+  position: relative;
+  z-index: 1;
 }
 
 .demand {
@@ -87,6 +90,7 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  text-align: center;
   .checkbox {
     font-weight: normal;
   }
@@ -130,6 +134,7 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  text-align: center;
 
   .form-control {
     position: relative;
@@ -141,7 +146,7 @@ body {
     font-size: 16px;
 
     &:focus {
-      z-index: 2;
+      z-index: 99;
     }
   }
 

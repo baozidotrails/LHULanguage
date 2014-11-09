@@ -8,9 +8,9 @@
 
 
 User.create([
-  { name: 'Baozi Wu', email: 'baozi.rails@gmail.com', password: 'vvvvvv' },
-  { name: 'Paotzu'  , email: 'paotzu.wu@gmail.com'  , password: 'vvvvvv' },
-  { name: 'Justin'  , email: 'justin@gmail.com'  , password: 'vvvvvv' }
+  { name: 'Baozi Wu', email: 'baozi.rails@gmail.com', password: 'vvvvvv', password_confirmation: 'vvvvvv' },
+  { name: 'Paotzu'  , email: 'paotzu.wu@gmail.com'  , password: 'vvvvvv', password_confirmation: 'vvvvvv' },
+  { name: 'Justin'  , email: 'justin@gmail.com'  , password: 'vvvvvv', password_confirmation: 'vvvvvv' }
  ])
 
 
@@ -27,8 +27,8 @@ end
 Language.create([
     { name: '美語'     , flag: 'us.png' },
     { name: '西語'     , flag: 'es.png' },
-    { name: '中文 (CN)', flag: 'cn.png' },
-    { name: '中文 (TW)', flag: 'tw.png' },
+    { name: '繁中'     , flag: 'tw.png' },
+    { name: '簡中'     , flag: 'cn.png' },
     { name: '日語'     , flag: 'jp.png' },
     { name: '韓語'     , flag: 'kr.png' },
     { name: '法語'     , flag: 'fr.png' },

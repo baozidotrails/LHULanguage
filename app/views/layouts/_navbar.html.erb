@@ -38,8 +38,10 @@
             </ul>
           </li>
         <% else %>
-          <%= nav_link '註冊', signup_path %>
-          <%= nav_link '登入', login_path %>
+          <%# nav_link '註冊', signup_path %>
+          <%# nav_link '登入', login_path %>
+          <li><%= link_to '註冊', signup_path %></li>
+          <li><%= link_to '登入', login_path %></li>
         <% end %>
       </ul>
 
